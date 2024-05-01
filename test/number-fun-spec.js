@@ -11,16 +11,20 @@ describe("returnsThree", function () {
 });
 
 describe("reciprocal", function () {
-    it("Should take a number between 1 and 1000000 and return reciprocal of it", function () {
-        expect(reciprocal(4)).to.equals(1 / 4);
-        expect(reciprocal(4)).to.equals(0.25);
-        expect(reciprocal(5)).to.equals(1 / 5);
-        expect(reciprocal(5)).to.equals(0.2);
+    context("When input is between 1 & 1000000.", function () {
+        it("Should take a number between 1 and 1000000 and return reciprocal of it", function () {
+            expect(reciprocal(4)).to.equals(1 / 4);
+            expect(reciprocal(4)).to.equals(0.25);
+            expect(reciprocal(5)).to.equals(1 / 5);
+            expect(reciprocal(5)).to.equals(0.2);
 
+        });
     });
-    it("Should throw a TypeError is the number less then 1 or grater then 1000000.", function () {
-        expect(() => reciprocal(1 / 4)).to.throw(TypeError, "input is out of range.");
-        expect(() => reciprocal(2 / 4)).to.throw(TypeError, "input is out of range.");
-        expect(() => reciprocal(2 / 4)).to.throw(TypeError, "input is out of range.");
-    })
+    context("When input is not between 1 & 1000000.", function () {
+        it("Should throw a TypeError is the number less then 1 or grater then 1000000.", function () {
+            expect(() => reciprocal(1 / 4)).to.throw(TypeError, "input is out of range.");
+            expect(() => reciprocal(2 / 4)).to.throw(TypeError, "input is out of range.");
+            expect(() => reciprocal(2 / 4)).to.throw(TypeError, "input is out of range.");
+        });
+    });
 });
